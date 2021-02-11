@@ -43,7 +43,7 @@ namespace GuessTheNumber
         {
             try
             {
-                Console.WriteLine("Enter a number that is going to be guessed by computer.");
+                Console.WriteLine("Enter a number within 0-100 that is going to be guessed by computer.");
                 int guessedNumber = -1;
                 while (guessedNumber == -1)
                 {
@@ -114,7 +114,7 @@ namespace GuessTheNumber
                 int tries = 0;
                 while (lastGuess != guessedNumber && tries < maxTries)
                 {
-                    Console.WriteLine("You have 5 tries to guess the number that i took so let's start \n Guess the number!");
+                    Console.WriteLine("You have 5 tries to guess the number within 0-100 that i took.\n So let's start \n Guess the number!");
                     lastGuess = int.Parse(Console.ReadLine());
 
 
