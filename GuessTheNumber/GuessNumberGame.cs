@@ -107,16 +107,26 @@ namespace GuessTheNumber
 
             try
             {
+            Start:
                 Random random = new Random();
                 int guessedNumber = random.Next(0, max);
 
                 int lastGuess = -1;
                 int tries = 0;
+                int showTries = 5;
+            
+                Console.WriteLine("You have 5 tries to guess the number within 0-100 that i took.\n So let's start \n Guess the number!");
+
                 while (lastGuess != guessedNumber && tries < maxTries)
                 {
-                    Console.WriteLine("You have 5 tries to guess the number within 0-100 that i took.\n So let's start \n Guess the number!");
                     lastGuess = int.Parse(Console.ReadLine());
+                    showTries--;
 
+                    if (lastGuess > 100)
+                    {
+                        Console.WriteLine("Error, Enter numbers between 0-100!");
+                        goto Start;
+                    }
 
                     if (lastGuess == guessedNumber)
                     {
@@ -126,13 +136,15 @@ namespace GuessTheNumber
 
                     else if (lastGuess < guessedNumber)
                     {
-                        Console.WriteLine("My number is greater!");
+
+                        Console.WriteLine("My number is greater!\n You have {0} tries left", showTries);
                     }
 
                     else
                     {
-                        Console.WriteLine("My number is less!");
+                        Console.WriteLine("My number is less!\n You have {0} tries left", showTries);
                     }
+
                     tries++;
 
                     if (tries == maxTries)
